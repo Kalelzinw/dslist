@@ -16,30 +16,36 @@ public class Game {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tittle;
+	private String title;
 	
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String platform;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
-	private String shotDescrption;
+	
+	@Column(columnDefinition =  "TEXT")
+	private String shortDescription;
+	
+	@Column(columnDefinition =  "TEXT")
 	private String longDescription;
 	
 	public Game () {
 		
 	}
 
-	public Game(Long id, String tittle, Integer year, String genre, String platform, String imgUrl,
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
 			String shotDescrption, String longDescription) {
 		
 		this.id = id;
-		this.tittle = tittle;
+		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.platform = platform;
+		this.platforms = platforms;
+		this.score = score;
 		this.imgUrl = imgUrl;
-		this.shotDescrption = shotDescrption;
+		this.shortDescription = shotDescrption;
 		this.longDescription = longDescription;
 	}
 
@@ -52,11 +58,11 @@ public class Game {
 	}
 
 	public String getTittle() {
-		return tittle;
+		return title;
 	}
 
 	public void setTittle(String tittle) {
-		this.tittle = tittle;
+		this.title = tittle;
 	}
 
 	public Integer getYear() {
@@ -75,12 +81,23 @@ public class Game {
 		this.genre = genre;
 	}
 
-	public String getPlatform() {
-		return platform;
+	public String getPlatforms() {
+		return platforms;
 	}
 
-	public void setPlatform(String platform) {
-		this.platform = platform;
+	public void setPlatforms(String platform) {
+		this.platforms = platform;
+	}
+	
+	
+	
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	public String getImgUrl() {
@@ -91,12 +108,12 @@ public class Game {
 		this.imgUrl = imgUrl;
 	}
 
-	public String getShotDescrption() {
-		return shotDescrption;
+	public String getShortDescrption() {
+		return shortDescription;
 	}
 
-	public void setShotDescrption(String shotDescrption) {
-		this.shotDescrption = shotDescrption;
+	public void setShortDescrption(String shotDescrption) {
+		this.shortDescription = shotDescrption;
 	}
 
 	public String getLongDescription() {
